@@ -30,7 +30,7 @@ COIL is an open-source CRUD (Create, Read, Update, Delete) application built spe
     * **Read:**  View case data, search records, and filter results.
     * **Update:** Modify existing case records as needed.
     * **Delete:** Remove case records securely.
-* **Google Drive Integration:**  Directly access case-specific folders in Google Drive with the click of a button.  Folders are automatically created if they don't exist.
+* **Google Drive Integration:**  Directly access case-specific folders in Google Drive with the click of a button.  Folders are automatically created if they don't exist. This integration is useful for saving anonymized radiological/clinical images.
 * **Web App Deployment:**  Deploy COIL as a web app for easy access within your institution or practice.
 
 
@@ -77,6 +77,10 @@ COIL is designed with patient privacy in mind. The application *does not* store 
 ## Development
 
 COIL is open-source and contributions are welcome!  If you'd like to contribute, please fork the repository and submit a pull request.
+
+## Thanks
+
+  * [How to Create an Online Data Entry Form that can Perform CRUD Operations on Google Sheets](https://www.bpwebs.com/crud-operations-on-google-sheets-with-online-forms/) by bpwebs.com
 
 ## Disclaimer
 
