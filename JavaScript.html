@@ -1,0 +1,173 @@
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+<script>
+
+
+  // Prevent forms from submitting
+  function preventFormSubmit() {
+    var forms = document.querySelectorAll('form');
+    for (var i = 0; i < forms.length; i++) {
+      forms[i].addEventListener('submit', function(event) {
+        event.preventDefault();
+      });
+    }
+  }
+
+
+  window.addEventListener("load", functionInit, true);
+
+  function functionInit() {
+    $('#spinnerModal').modal('show');
+    preventFormSubmit();
+    getLastTenRows();  // Fetch initial data
+  };
+
+
+
+  // HANDLE FORM SUBMISSION 
+  function handleFormSubmit(formObject) {
+      $('#spinnerModal').modal('show');
+      google.script.run.withSuccessHandler(createTable).processForm(formObject);
+
+      // Correctly reset the form including the hidden uuid field:
+      document.getElementById("patientDetailsForm").reset();
+      document.getElementById("uuid").value = "";  // Explicitly clear the UUID field
+
+      document.getElementById("message").innerHTML = ""; // Clear messages (optional)
+
+  }
+
+
+  // DELETE RECORD
+
+  function deleteRecord(el) {
+      var result = confirm("Want to delete?");
+      if (result) {
+        $('#spinnerModal').modal('show');
+        var recordId = el.parentNode.parentNode.cells[3].innerHTML; // UUID is now at index 3
+        google.script.run.withSuccessHandler(createTable).deleteRecord(recordId);
+        document.getElementById("patientDetailsForm").reset(); // Reset the form
+        document.getElementById("message").innerHTML = ""; // Clear any message
+      }
+  }
+
+  function editRecord(el) {
+      $('#spinnerModal').modal('show');
+      let uuid = el.parentNode.parentNode.cells[3].innerHTML;  // UUID is now at index 3
+      google.script.run.withSuccessHandler(populateForm).getRecordById(uuid);
+  }
+
+
+  // GET LAST 10 ROWS
+  function getLastTenRows() {
+    google.script.run.withSuccessHandler(createTable).getLastTenRecords();
+  }
+
+  function populateForm(data) {
+      $('#spinnerModal').modal('hide');
+
+      document.getElementById('uuid').value = data[0][0] || "";
+      document.getElementById('patientId').value = data[0][1] || "";
+      document.getElementById('date').value = data[0][2] || "";
+      document.getElementById('age').value = data[0][3] || "";
+
+      // Gender - needs special handling to check radio buttons
+      let gender = data[0][4] || ""; //get the gender value
+      if (gender) { //if gender is not null.
+          document.getElementById(gender).checked = true; //checks the relevant gender radio button.
+      }
+
+
+
+      document.getElementById('symptoms').value = data[0][5] || "";
+      document.getElementById('imagingFindings').value = data[0][6] || "";
+      document.getElementById('labFindings').value = data[0][7] || "";
+      document.getElementById('diagnosis').value = data[0][8] || "";
+      document.getElementById('dsaFindings').value = data[0][9] || "";
+      document.getElementById('technicalOutcome').value = data[0][10] || "";
+      document.getElementById('clinicalOutcome').value = data[0][11] || "";
+      document.getElementById('fuDate1').value = data[0][12] || "";
+      document.getElementById('fuRemarks1').value = data[0][13] || "";
+      document.getElementById('fuDate2').value = data[0][14] || "";
+      document.getElementById('fuRemarks2').value = data[0][15] || "";
+
+
+      document.getElementById("message").innerHTML = "<div class='alert alert-warning' role='alert'>Update Record [UUID: " + (data[0][0] || "") + "]</div>";
+  }
+
+  function openDriveFolder(el) {
+      const uuid = el.parentNode.parentNode.cells[3].innerText; // UUID is now in the 4th cell (index 3)
+      const patientId = el.parentNode.parentNode.cells[4].innerText; // Patient ID is now in the 5th cell (index 4)
+
+
+
+      google.script.run.withSuccessHandler(folderUrl => {
+          if (folderUrl) {
+              window.open(folderUrl, '_blank');
+          } else {
+              alert('Error opening or creating the Google Drive folder.'); // More informative message
+          }
+      }).openPatientFolder(patientId, uuid);
+
+
+  }
+
+  function createTable(dataArray) {
+      $('#spinnerModal').modal('hide');
+
+      if (dataArray && dataArray.length) {
+          var result = "<table class='table table-sm' style='font-size:0.8em'>";
+          result += "<thead style='white-space: nowrap'><tr>";
+          result += "<th>Delete</th><th>Edit</th><th>Files</th>"; // Actions (including GD button)  IMPORTANT CHANGE
+          result += "<th style='display:none;'>UUID</th>"; // Hidden UUID column
+          result += "<th>ID</th><th>Date</th><th>Age</th><th>Gender</th><th>Symptoms</th><th>Imaging Findings</th><th>Lab Findings</th><th>Diagnosis</th><th>DSA Findings</th><th>Technical Outcome</th><th>Clinical Outcome</th><th>First FU Date</th><th>First FU Remarks</th><th>Second FU Date</th><th>Second FU Remarks</th>"; // All other headers
+          result += "</tr></thead><tbody>";
+
+          dataArray.forEach(row => {
+              result += "<tr>";
+              result += "<td><button type='button' class='btn btn-danger btn-custom deleteBtn' onclick='deleteRecord(this);'>Delete</button></td>";
+              result += "<td><button type='button' class='btn btn-warning btn-custom editBtn' onclick='editRecord(this);'>Edit</button></td>";
+              result += "<td><button type='button' class='btn btn-success btn-custom' onclick='openDriveFolder(this)'>📂</button></td>"; // GD Button
+
+              result += "<td style='display:none;'>" + row[0] + "</td>"; // Hidden UUID cell
+              for (var j = 1; j < row.length; j++) { // Start from index 1 (Patient ID)
+                  result += "<td>" + row[j] + "</td>";
+              }
+
+              result += "</tr>";
+
+
+          });
+          result += "</tbody></table>"; // Added </tbody>
+
+          var div = document.getElementById("dataTable");
+          div.innerHTML = result;
+          document.getElementById("message").innerHTML = "";
+
+      } else {
+          var div = document.getElementById("dataTable");
+          div.innerHTML = "Data not found!";
+      }
+  }
+
+
+// SEARCH RECORDS
+function handleSearchForm(formObject) {
+  $('#spinnerModal').modal('show');
+  google.script.run.withSuccessHandler(createTable).searchRecords(formObject);
+  document.getElementById("search-form").reset();
+}
+
+
+//GET ALL RECORDS
+function getAllRecords(){
+    $('#spinnerModal').modal('show');
+    google.script.run.withSuccessHandler(createTable).getAllRecords();
+  }
+
+
+
+</script>
