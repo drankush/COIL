@@ -1,0 +1,18 @@
+<p class="h4 mb-4 text-center">Search Logs</p>
+
+<!-- SEARCH FORM-->
+<form id="search-form" class="form-inline" onsubmit="handleSearchForm(this)">
+  <div class="input-group">
+    <input type="text" class="form-control form-control-sm mb-2" id="searchText" name="searchText" placeholder="Search" required>
+    <button type="submit" class="btn btn-sm btn-primary mb-2">Search</button>
+  </div>
+</form>
+<!-- END - SEARCH FORM-->
+
+<div class="table-responsive">
+  <div id="dataTable">
+    <!-- The Data Table is inserted here by JavaScript -->
+  </div>
+</div>
+<br>
+<button type="button" class="btn btn-success btn-sm" onclick="getAllRecords()">Get ALL Data</button>
