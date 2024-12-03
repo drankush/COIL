@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div class="container">
+    <header class="text-center mb-4"> <!-- Header section -->
+      <img src="https://i.ibb.co/tqkCLZF/coil-logo.jpg" alt="COIL Logo" style="width: 50%; display: block; margin: 0 auto;">
+    </header>
+
+    <div class="row">
+      <div class="col-lg-5">
+        <?!= include('FormPatientDetails'); ?>
+      </div>
+      <div class="col-lg-7">
+        <?!= include('DataTable'); ?>
+      </div>
+    </div>
+
+    <footer class="text-center mt-4"> <!-- Footer section -->
+      <p>Created by <a href="https://www.drankush.com" target="_blank">Dr. Ankush</a></p>
+    </footer>
+  </div>
+
+  <?!= include('CSS'); ?>
+  <?!= include('JavaScript'); ?>
+  <?!= include('SpinnerModal'); ?>
+</body>
+</html>
