@@ -92,7 +92,7 @@ COIL is open-source and contributions are welcome!  If you'd like to contribute,
 
 ## Thanks
 
-  * [How to Create an Online Data Entry Form that can Perform CRUD Operations on Google Sheets](https://www.bpwebs.com/crud-operations-on-google-sheets-with-online-forms/) by bpwebs.com
+  * How to Create an Online Data Entry Form that can Perform CRUD Operations on Google Sheets by [bpwebs.com](https://www.bpwebs.com/crud-operations-on-google-sheets-with-online-forms/)
 
 ## Disclaimer
 
