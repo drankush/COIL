@@ -65,7 +65,7 @@ COIL is designed with patient privacy in mind. The application *does not* store 
     * In the Apps Script editor, go to "Deploy" > "New deployment".
     * Select "Web app" as the type.
     * Choose "Execute the app as:" "Me (your email address)".
-    * Choose "Who has access to the app:" "(Your choice depending upon your access needs -  'Anyone', 'Anyone within your domain' etc.)
+    * Choose "Who has access to the app:" "(Your should prefer to keep it to - 'Only Myself'.)
     * Click "Deploy".
     * Copy the "Web app URL" – this is the URL you'll use to access COIL.
 
