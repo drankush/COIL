@@ -48,8 +48,8 @@ COIL is designed with patient privacy in mind. The application *does not* store 
     * Basic familiarity with Google Sheets and Google Apps Script.
 
 2. **Make Copies:**
-    * **Google Sheet:** Create a copy of the provided COIL Google Sheet template.
-    * **Apps Script:**  Make a copy of the provided COIL Apps Script file (`Code.gs`, `CSS.html`, `DataTable.html`, `FormPatientDetails.html`, `Index.html`, `JavaScript.html`, `SpinnerModal.html`).
+    * **Google Sheet:** Import  [this](https://github.com/drankush/COIL/blob/main/example/sample_ir_patient_log.csv) sample CSV file from the example folder into a Google Sheets worksheet.
+    * **Apps Script:**  Make a copy of the provided COIL Apps Script file (`Code.gs`, `CSS.html`, `DataTable.html`, `FormPatientDetails.html`, `Index.html`, `JavaScript.html`, `SpinnerModal.html`), in [Google Apps Script](https://script.google.com/).
 
 3. **Configure Apps Script:**
     * **Open Script:** Open the copied Apps Script file.
@@ -82,6 +82,9 @@ COIL is designed with patient privacy in mind. The application *does not* store 
   <p style="text-align: center; margin-top: 10px;"><i>COIL WebUI: Shows randomly generated data for illustration.</i></p>
 </div>
 
+## Demo
+
+[View Application Demo](https://go.drankush.com/COIL)
 
 ## Development
 
