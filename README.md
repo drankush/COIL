@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="coil_logo.jpeg" alt="COIL Logo" style="width: 50%; display: block; margin: 0 auto;" />
+  <img src="images/coil_logo.jpeg" alt="COIL Logo" style="width: 50%; display: block; margin: 0 auto;" />
 </p>
 
 <div align="center">
@@ -73,6 +73,14 @@ COIL is designed with patient privacy in mind. The application *does not* store 
     * Open the Web App URL in your browser.
     * You can now add, edit, delete, view, and search case records.
     * Click the "📂" button to access or create the corresponding Google Drive folder for a case.
+
+## Screenshot
+
+<div align="center">
+  <img src="images/coil_webui.jpeg" alt="COIL WebUI" style="width: 95%; display: block; margin: 0 auto;" />
+  <p style="text-align: center; margin-top: 10px;"><i>COIL WebUI - Shows randomly generated data for illustration</i></p>
+</div>
+
 
 ## Development
 
