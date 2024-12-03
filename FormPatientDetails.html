@@ -1,0 +1,90 @@
+<form id="patientDetailsForm" onsubmit="handleFormSubmit(this)">
+  <p class="h4 mb-4 text-center">Case Log Entry </p>
+  <div id="message"></div>
+
+  <input type="hidden" id="uuid" name="uuid" value="">  </input>
+
+  </input>
+  <div class="mb-3">
+  <label for="patientId" class="form-label">Patient ID:</label>
+    <input type="text" class="form-control form-control-sm" id="patientId" name="patientId" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="date" class="form-label">Date:</label>
+    <input type="date" class="form-control form-control-sm" id="date" name="date" required>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="age" class="form-label">Age:</label>
+    <input type="number" class="form-control form-control-sm" id="age" name="age" min="0" max="99" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Gender:</label><br>
+    <div class="form-check form-check-inline">
+      <input type="radio" class="form-check-input" id="Male" name="gender" value="Male" required>
+      <label class="form-check-label" for="Male">Male</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input type="radio" class="form-check-input" id="Female" name="gender" value="Female" required>
+      <label class="form-check-label" for="Female">Female</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input type="radio" class="form-check-input" id="Transgender" name="gender" value="Transgender" required>
+      <label class="form-check-label" for="Transgender">Transgender</label>
+    </div>
+  </div>
+
+
+
+  <div class="mb-3">
+    <label for="symptoms" class="form-label">Symptoms:</label>
+    <textarea class="form-control" id="symptoms" name="symptoms" rows="3"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="imagingFindings" class="form-label">Imaging Findings (CT/MRI/US):</label>
+    <textarea class="form-control" id="imagingFindings" name="imagingFindings" rows="3"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="labFindings" class="form-label">Lab Findings:</label>
+    <textarea class="form-control" id="labFindings" name="labFindings" rows="3"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="diagnosis" class="form-label">Diagnosis:</label>
+    <input type="text" class="form-control" id="diagnosis" name="diagnosis">
+  </div>
+  <div class="mb-3">
+    <label for="dsaFindings" class="form-label">DSA Findings:</label>
+    <textarea class="form-control" id="dsaFindings" name="dsaFindings" rows="3"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="technicalOutcome" class="form-label">Technical Outcome:</label>
+    <textarea class="form-control" id="technicalOutcome" name="technicalOutcome" rows="3"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="clinicalOutcome" class="form-label">Clinical Outcome:</label>
+    <textarea class="form-control" id="clinicalOutcome" name="clinicalOutcome" rows="3"></textarea>
+  </div>
+  <p class="h5 mt-4">Follow-Up</p>
+  <div class="mb-3">
+    <label for="fuDate1" class="form-label">First FU Date:</label>
+    <input type="date" class="form-control" id="fuDate1" name="fuDate1">
+  </div>
+  <div class="mb-3">
+    <label for="fuRemarks1" class="form-label">First FU Remarks:</label>
+    <textarea class="form-control" id="fuRemarks1" name="fuRemarks1" rows="3"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="fuDate2" class="form-label">Second FU Date:</label>
+    <input type="date" class="form-control" id="fuDate2" name="fuDate2">
+  </div>
+  <div class="mb-3">
+    <label for="fuRemarks2" class="form-label">Second FU Remarks:</label>
+    <textarea class="form-control" id="fuRemarks2" name="fuRemarks2" rows="3"></textarea>
+  </div>
+
+  <div class="d-flex justify-content-end">  </div> <button type="submit" class="btn btn-primary me-1">Submit</button>
+  <input class="btn btn-secondary" type="reset" value="Reset"> </input> <div> </div>
+</form>
