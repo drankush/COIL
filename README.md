@@ -32,6 +32,7 @@ COIL is an open-source CRUD (Create, Read, Update, Delete) application built spe
     * **Delete:** Remove case records securely.
 * **Google Drive Integration:**  Directly access case-specific folders in Google Drive with the click of a button.  Folders are automatically created if they don't exist. This integration is useful for saving anonymized radiological/clinical images.
 * **Web App Deployment:**  Deploy COIL as a web app for easy access within your institution or practice.
+* **Adaptable for Other Specialties:** While designed for Interventional Radiology, COIL's core structure can be easily adapted for use by other healthcare professionals involved in surgical or operative interventions.  The form fields and data structure can be customized to fit the specific needs of different specialties.
 
 
 ## Patient Privacy Notice
@@ -78,7 +79,7 @@ COIL is designed with patient privacy in mind. The application *does not* store 
 
 <div align="center">
   <img src="images/coil_webui.jpeg" alt="COIL WebUI" style="width: 95%; display: block; margin: 0 auto;" />
-  <p style="text-align: center; margin-top: 10px;"><i>COIL WebUI - Shows randomly generated data for illustration</i></p>
+  <p style="text-align: center; margin-top: 10px;"><i>COIL WebUI: Shows randomly generated data for illustration.</i></p>
 </div>
 
 
