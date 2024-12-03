@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/coil_logo.jpeg" alt="COIL Logo" />
+  <img src="coil_logo.jpeg" alt="COIL Logo" />
 </p>
 
 <div align="center">
