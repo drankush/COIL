@@ -20,24 +20,24 @@
 # COIL 
 *Case Outcome & Intervention Log*
 
-COIL is an open-source CRUD (Create, Read, Update, Delete) application built specifically for Interventional Radiology (IR) procedures logbook keeping.  It leverages the power of Google Sheets and Apps Script to provide a simple, yet effective way to manage and log your procedure records and track outcomes.
+COIL is an open-source CRUD (Create, Read, Update, Delete) application built specifically for private Interventional Radiology (IR) procedures logbook keeping.  It leverages the power of Google Sheets and Apps Script to provide a simple, yet effective way to manage and log your procedure records and track outcomes.
 
 ## Features
 
-* **Simplified Procedure Records:** Easily record and manage case data, including ID, date, age, gender, symptoms, imaging findings, lab results, diagnosis, DSA findings, technical and clinical outcomes, and follow-up information.
+* **Simplified Procedure Records:** Easily record and manage case data, including ID, date, age, gender, symptoms, imaging findings, lab results, diagnosis, DSA findings, technical and clinical outcomes, and follow-up information. The data is stored in a Google Sheet of your personal Google account. The ID here is not supposed to be Medical Record Number or Identifiable Code but rather institution-generated and anonymized number for tracking cases.
 * **CRUD Operations:**  Perform all essential database operations:
     * **Create:** Add new case records with ease.
     * **Read:**  View case data, search records, and filter results.
     * **Update:** Modify existing case records as needed.
     * **Delete:** Remove case records securely.
-* **Google Drive Integration:**  Directly access case-specific folders in Google Drive with the click of a button.  Folders are automatically created if they don't exist. This integration is useful for saving anonymized radiological/clinical images.
+* **Google Drive Integration:**  Directly access case-specific folders in Google Drive (of your personal Google account) with the click of a button.  Folders are automatically created if they don't exist. This integration is useful for saving anonymized radiological/clinical images.
 * **Web App Deployment:**  Deploy COIL as a web app for easy access within your institution or practice.
 * **Adaptable for Other Specialties:** While designed for Interventional Radiology, COIL's core structure can be easily adapted for use by other healthcare professionals involved in surgical or operative interventions.  The form fields and data structure can be customized to fit the specific needs of different specialties.
 
 
 ## Patient Privacy Notice
 
-COIL is designed with patient privacy in mind. The application *does not* store patient names to enhance data security.  Users are strongly advised to maintain a separate, secure, and access-controlled record linking patient IDs to their names offline.  This separation of identifiers helps protect patient privacy while still allowing for efficient case management within COIL.
+COIL is designed with patient privacy in mind. The application *does not* store patient names to enhance data security.  Users may maintain a separate, secure, and access-controlled record linking patient IDs to their names offline, if required.  This separation of identifiers helps protect patient privacy while still allowing for efficient case management within COIL.
 
 
 
