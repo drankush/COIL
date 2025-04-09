@@ -1,4 +1,3 @@
-
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
@@ -30,14 +29,10 @@
   // HANDLE FORM SUBMISSION 
   function handleFormSubmit(formObject) {
       $('#spinnerModal').modal('show');
-      google.script.run.withSuccessHandler(createTable).processForm(formObject);
-
-      // Correctly reset the form including the hidden uuid field:
-      document.getElementById("patientDetailsForm").reset();
-      document.getElementById("uuid").value = "";  // Explicitly clear the UUID field
-
-      document.getElementById("message").innerHTML = ""; // Clear messages (optional)
-
+      google.script.run.withSuccessHandler(function(response) {
+          createTable(response);
+          prepareNewRecord(); // Use our new function to reset the form
+      }).processForm(formObject);
   }
 
 
@@ -68,6 +63,10 @@
 
   function populateForm(data) {
       $('#spinnerModal').modal('hide');
+    
+      console.log('Debug 7: Received data in populateForm:', JSON.stringify(data));
+      console.log('Debug 8: First row:', data[0] ? JSON.stringify(data[0]) : 'No data');
+      console.log('Debug 9: UUID value:', data[0] ? data[0][0] : 'No UUID');
 
       document.getElementById('uuid').value = data[0][0] || "";
       document.getElementById('patientId').value = data[0][1] || "";
@@ -168,6 +167,20 @@ function getAllRecords(){
     google.script.run.withSuccessHandler(createTable).getAllRecords();
   }
 
-
+function prepareNewRecord() {
+  // Reset all form fields
+  document.getElementById("patientDetailsForm").reset();
+  
+  // Clear the hidden UUID field
+  document.getElementById("uuid").value = "";
+  
+  // Clear any checked radio buttons for gender
+  document.getElementById("Male").checked = false;
+  document.getElementById("Female").checked = false;
+  document.getElementById("Transgender").checked = false;
+  
+  // Clear the update message
+  document.getElementById("message").innerHTML = "";
+}
 
 </script>
