@@ -106,4 +106,9 @@ COIL does not guarantee against data loss due to user error, technical issues, o
 
 ## License
 
-MIT License
+This project is licensed under a **custom, source-available license**. It is:
+
+- **Free for personal, non-commercial use only.**
+- **Commercial, institutional, or profit-based use requires prior written permission** from the developer (Ankush).
+
+See the [LICENSE](LICENSE) file for full details.
